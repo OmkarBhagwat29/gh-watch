@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using Gh.Watch.Constants;
 using Gh.Watch.Serialization;
 using Grasshopper;
 using Grasshopper.GUI.Canvas;
@@ -259,10 +258,7 @@ namespace Gh.Watch
             if (_panel == null || _panel.IsDisposed || goo_structure == null) return;
 
             var data = goo_structure.SerializeObjects();
-            if (data.Count == 0) {
-                return;
-            }
-            
+            if (data.Count == 0) return;
 
             foreach (var dto in data)
                 _panel.SendGeometry(dto);
