@@ -95,8 +95,8 @@ namespace Gh.Watch
             using (var sf = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center })
                 graphics.DrawString(Owner.NickName, SystemFonts.DefaultFont, brush, headerRect, sf);
 
-            // Keep the WinForms panel aligned with the body in screen coordinates.
-            _panelHost.Sync(canvas, BodyRect);
+            // Sync both the WebView2 panel (body) and the frame overlay (full bounds).
+            _panelHost.Sync(canvas, Bounds, BodyRect, Owner.NickName, Selected, Owner.Locked, Owner.Hidden);
         }
 
         // Body area: everything below the header, inset so the capsule border stays visible.
